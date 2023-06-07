@@ -2,11 +2,13 @@
 #include<stdlib.h>
 #include<time.h>
 
+// cls is the structure being initiated
+
 typedef struct cls
 {
-    char sub[20];
-    char prof[20];
-    char pf[20];
+    char sub[20]; //subject
+    char prof[20]; // professor
+    char pf[20]; // platform
     struct time{
         int date;
         int hour;
@@ -14,12 +16,12 @@ typedef struct cls
         }tm;
 }cls;
 
-void sort()
+void sort() // sorting the classes based on time
 {
     cls *c,c1;
     FILE *fp;
     int i,j,td,th,tm;
-    fp=fopen("classes.txt","r");
+    fp=fopen("classes.txt","r"); 
     fseek(fp,0,SEEK_END);
     int n=ftell(fp)/sizeof(cls);
     rewind(fp);
@@ -65,7 +67,7 @@ void sort()
     fclose(fp);
 }
 
-void search()
+void search() //search for some class based on date
 {
     cls c1;
     FILE *fp;
@@ -91,7 +93,7 @@ void search()
     fclose(fp);
 }
 
-void add()
+void add() //complete new schedule
 {
     cls *c;
     FILE *fp;
@@ -122,7 +124,7 @@ void add()
     fclose(fp);
 }
 
-void display_rem()
+void display_rem() // display remaining classes
 {
 
     time_t t;
@@ -165,7 +167,7 @@ void display_rem()
     fclose(fp);
 }
 
-void display_mis()
+void display_mis() // display missed classes
 {
     time_t t;
     time( &t );
@@ -212,7 +214,7 @@ void display_mis()
 
 }
 
-void append()
+void append() // add new classes
 {
     cls *c;
     FILE *fp;
